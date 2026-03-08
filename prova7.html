@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 7 - ECONOMIA I PODER</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: auto;
+            width: 60%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        h3 {
+            color: #777;
+        }
+
+        #Preguntes {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>PROVA 7 – ECONOMIA I PODER</h1>
+
+    <div id="Preguntes">
+        <div id="contentContainer1">
+            <h3>En aquest grup escultòric apareixen dos nens, un és un déu, indentifica'l?</h3>
+            <input type="text" id="rp1" name="pregunta1" />
+            <button onclick="Seguent1()">Següent</button>
+        </div>
+        <div id="contentContainer2" style="display:none;">
+            <h3>A aquesta divinitat se li dedica un dia de la setmana, quin?</h3>
+            <input type="text" id="rp2" name="pregunta1" />
+            <button onclick="Següent2()">Següent</button>
+        </div>
+        <div id="contentContainer3" style="display:none;">
+        <h3>Ja que estem a Belgica, com és diu dimecres en francès?</h3>
+        <input type="text" id="rp3" name="pregunta1" />
+        <button onclick="check()">Comprova</button>
+        <form action="prova7.html" method="get"><button>Reinicia</button></form> <!-- Canviar en cada copia-->
+    </div>
+    </div>
+
+    </div>
+    <div id="pista" style="display:none;">
+        <h3>Foto</h3>
+        <p>Recorda enviar una fotografia del teu grup davant de l'estàtua al WhatsApp de les profes.</p>
+        <h3>Pista següent:</h3>
+        <p>Busca el rei de la selva.</p>
+
+        <form action="index.html" method="get"><button>Menú</button></form>
+    </div>
+
+    <script>
+        //////////////////////////////////////////////////SCRIPT PROVA 1////////////////////////////////////////////////////////
+        function Seguent1() {
+
+            if (document.getElementById("rp1").value != "") {
+                document.getElementById("contentContainer1").style.display = "none";
+                document.getElementById("contentContainer2").style.display = "block";
+                resp1 = document.getElementById("rp1").value;
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+
+
+        }
+        function Següent2() {
+            if (document.getElementById("rp2").value != "") {
+                document.getElementById("contentContainer2").style.display = "none";
+                document.getElementById("contentContainer3").style.display = "block";
+                resp2 = document.getElementById("rp2").value;
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+        }
+
+        
+
+
+        function check() {
+            var resposta1 = "Hermes"; // Resposta correcta per a la pregunta 1
+            var resposta11 = "Mercuri"; // Resposta correcta per a la pregunta 2
+            var resposta2 = "Dimecres"; // Resposta correcta per a la pregunta 2
+            var resposta3 = "Mercredi"; // Resposta correcta per a la pregunta 3
+
+            if ((resp1 === resposta1 || resp1 === resposta11 ) && resp2 === resposta2 && resposta3 === document.getElementById("rp3").value) {
+                document.getElementById("Preguntes").style.display = "none";
+                document.getElementById("contentContainer3").style.display = "none";
+                document.getElementById("pista").style.display = "block";
+            } else {
+                alert("incorrecte, intenta-ho de nou.");
+
+            }
+        }
+    </script>
+</body>
+
+</html>

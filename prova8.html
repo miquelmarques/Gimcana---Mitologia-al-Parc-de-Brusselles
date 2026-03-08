@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 8 - UN TREBALL HERCULI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: auto;
+            width: 60%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        h3 {
+            color: #777;
+        }
+
+        #Preguntes {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>PROVA 8 – UN TREBALL HERCULI</h1>
+
+    <div id="Preguntes">
+        <div id="contentContainer1">
+            <h3>El lleó es relaciona amb l'heroi Hèrcules, quin era el seu nom en grec?</h3>
+            <input type="text" id="rp1" name="pregunta1" />
+            <button onclick="Seguent1()">Següent</button>
+        </div>
+        <div id="contentContainer2" style="display:none;">
+            <h3>El seu primer treball fou matar el lleó de Nemea, però aquest animal ...</h3>
+
+            <input type="radio" id="rp2.1" name="pregunta2" value="1" />
+            <label for="rp2.1">era immortal.</label> <br>
+
+            <input type="radio" id="rp2.2" name="pregunta2" value="2" />
+            <label for="rp2.2">tenia una pell impenetrable.</label> <br>
+
+            <input type="radio" id="rp2.3" name="pregunta2" value="3" />
+            <label for="rp2.3">treia foc pels queixals.</label> <br>
+
+            <button onclick="Següent2()">Següent</button>
+        </div>
+    </div>
+    <div id="contentContainer3" style="display:none;">
+        <h3>Per això, el va haver d'escanyar i es va quedar la seva pell com a ...</h3>
+        <input type="text" id="rp3" name="pregunta1" />
+        <button onclick="check()">Comprova</button>
+        <form action="prova8.html" method="get"><button>Reinicia</button></form> <!-- Canviar en cada copia-->
+    </div>
+    <div id="pista" style="display:none;">
+        <h3>Foto</h3>
+        <p>Recorda enviar una fotografia del teu grup davant de l'estàtua al WhatsApp de les profes.</p>
+        <h3>Pista següent:</h3>
+        <p>Seguim amb felins, cerqueu una estatua moderna amb un gatet molt carregat.</p>
+
+        <form action="index.html" method="get"><button>Menú</button></form>
+    </div>
+
+    <script>
+        //////////////////////////////////////////////////SCRIPT PROVA 1////////////////////////////////////////////////////////
+        function Seguent1() {
+            if (document.getElementById("rp1").value != "") {
+                document.getElementById("contentContainer1").style.display = "none";
+                document.getElementById("contentContainer2").style.display = "block";
+                resp1 = document.getElementById("rp1").value;
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+        }
+        function Següent2() {
+            if (document.getElementById("rp2.1").checked || document.getElementById("rp2.2").checked || document.getElementById("rp2.3").checked) {
+                document.getElementById("contentContainer2").style.display = "none";
+                document.getElementById("contentContainer3").style.display = "block";
+                resp2 = document.querySelector('input[name="pregunta2"]:checked').value;
+
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+        }
+
+
+        function check() {
+            var resposta1 = "Hèracles"; // Resposta correcta per a la pregunta 1
+            var resposta2 = "2"; // Resposta correcta per a la pregunta 2
+            var resposta3 = "Armadura"; // Resposta correcta per a la pregunta 3
+            var resposta31 = "Cuirassa"; // Resposta correcta per a la pregunta 3
+            var resposta32 = "Capa protectora"; // Resposta correcta per a la pregunta 3
+            var resp3 = document.getElementById("rp3").value;
+            if (resp2 === resposta2 && resposta3 === resp3 || resposta31 === resp3 || resposta32 === resp3) {
+                document.getElementById("Preguntes").style.display = "none";
+                document.getElementById("contentContainer3").style.display = "none";
+                document.getElementById("pista").style.display = "block";
+            } else {
+                alert("incorrecte, intenta-ho de nou.");
+
+            }
+        }
+    </script>
+</body>
+
+</html>

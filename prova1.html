@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 1 - METAMORFOSI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: auto;
+            width: 60%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        h3 {
+            color: #777;
+        }
+
+        #Preguntes {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>PROVA 1 – METAMORFOSI</h1>
+
+    <div id="Preguntes">
+        <div id="contentContainer1">
+            <h3>Quin déu s'amaga darrere el cigne?</h3>
+            <input type="text" id="rp1.1" name="pregunta1" />
+            <button onclick="Seguent1()">Següent</button>
+        </div>
+        <!--<div id="contentContainer1">
+           
+            <ol>
+                <li><input type="radio" id="rp1.1" name="pregunta1" value="1" />
+                    <label for="rp1.1">1</label>
+                </li>
+                <li> <input type="radio" id="rp1.2" name="pregunta1" value="2" />
+                    <label for="rp1.2">2</label>
+                </li>
+                <li><input type="radio" id="rp1.3" name="pregunta1" value="3" />
+                    <label for="rp1.3">3</label>
+                </li>
+            </ol>
+            <button onclick="Seguent1()">Següent</button>
+        </div>-->
+        <div id="contentContainer2" style="display:none;">
+            <h3>Desprès d'aquesta relació, que va parir Leda? </h3>
+
+            <input type="radio" id="rp2.1" name="pregunta2" value="1" />
+            <label for="rp2.1">Dos nens</label> <br>
+
+            <input type="radio" id="rp2.2" name="pregunta2" value="2" />
+            <label for="rp2.2">Dos ous</label> <br>
+
+            <input type="radio" id="rp2.3" name="pregunta2" value="3" />
+            <label for="rp2.4">Dues nenes</label> <br>
+
+            </ol>
+            <button onclick="Següent2()">Següent</button>
+        </div>
+    </div>
+    <div id="contentContainer3" style="display:none;">
+        <h3>Què hi havia en cada ou?</h3>
+
+        <input type="radio" id="rp3.1" name="pregunta3" value="1" />
+        <label for="rp3.1">Dos nens i dues nenes</label> <br>
+
+        <input type="radio" id="rp3.2" name="pregunta3" value="2" />
+        <label for="rp3.2">Un nen i una nena</label> <br>
+
+        <input type="radio" id="rp3.3" name="pregunta3" value="3" />
+        <label for="rp3.3">Dos cignes</label> <br>
+
+        <button onclick="Següent3()">Següent</button>
+        
+    </div>
+
+
+    <div id="contentContainer4" style="display:none;">
+        <h3>Quina heroïna, famosa per la seva bellesa sorgeix d'un dels ous?</h3>
+        <input type="text" id="rp4" name="pregunta1" />
+        <button onclick="Seguent4()">Següent</button>
+    </div>
+    <div id="contentContainer5" style="display:none;">
+        <h3>En l'altre ou, hi ha dos germans, amb quin constel·lació els relacionem?</h3>
+        <input type="text" id="rp5" name="pregunta1" />
+        <button onclick="check()">Comprova</button>
+        <form action="prova1.html" method="get"><button>Reinicia</button></form>
+    </div>
+
+    <div id="pista" style="display:none;">
+        <h3>Foto</h3>
+        <p>Recorda enviar una fotografia del teu grup davant de l'estàtua al WhatsApp de les profes.</p>
+        <h3>Pista següent:</h3>
+        <p>Busca el déu associat a la llum i a la perfecció del cos.</p>
+        <form action="index.html" method="get"><button>Menú</button></form>
+    </div>
+
+    <script>
+        //////////////////////////////////////////////////SCRIPT PROVA 1////////////////////////////////////////////////////////
+        function Seguent1() {
+            if (document.getElementById("rp1.1").value != "") {
+                document.getElementById("contentContainer1").style.display = "none";
+                document.getElementById("contentContainer2").style.display = "block";
+                resp1 = document.getElementById("rp1.1").value;
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+        }
+        /*function Següent1() {
+            if (document.getElementById("rp1.1").checked || document.getElementById("rp1.2").checked || document.getElementById("rp1.3").checked) {
+                document.getElementById("contentContainer1").style.display = "none";
+                document.getElementById("contentContainer2").style.display = "block";
+                resp1 = document.querySelector('input[name="pregunta1"]:checked').value;
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+        }*/
+        function Següent2() {
+            if (document.getElementById("rp2.1").checked || document.getElementById("rp2.2").checked || document.getElementById("rp2.3").checked) {
+                document.getElementById("contentContainer2").style.display = "none";
+                document.getElementById("contentContainer3").style.display = "block";
+                resp2 = document.querySelector('input[name="pregunta2"]:checked').value;
+
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+        }
+        function Següent3() {
+            if (document.getElementById("rp2.1").checked || document.getElementById("rp2.2").checked || document.getElementById("rp2.3").checked) {
+                document.getElementById("contentContainer3").style.display = "none";
+                document.getElementById("contentContainer4").style.display = "block";
+                resp3 = document.querySelector('input[name="pregunta3"]:checked').value;
+
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+        }
+
+        function Seguent4() {
+            if (document.getElementById("rp1.1").value != "") {
+                document.getElementById("contentContainer4").style.display = "none";
+                document.getElementById("contentContainer5").style.display = "block";
+                resp1 = document.getElementById("rp1.1").value;
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+
+        }
+
+        function check() {
+            var resposta1 = "Zeus"; // Resposta correcta per a la pregunta 1
+            var resposta2 = "2"; // Resposta correcta per a la pregunta 2
+            var resposta3 = "1"; // Resposta correcta per a la pregunta 3
+            var resposta4 = "Hel·lena"; // Resposta correcta per a la pregunta 4
+            var resposta5 = "Geminis"; 
+            var repsosta51 = "Bessons" // Resposta correcta per a la pregunta 5
+            resp3 = document.querySelector('input[name="pregunta3"]:checked').value; // Obtenir la resposta de la pregunta 3
+
+            if (resp1 === resposta1 && resp2 === resposta2 && resp3 === resposta3 && document.getElementById("rp4").value === resposta4 && (document.getElementById("rp5").value === resposta5 || document.getElementById("rp5").value === repsosta51)) {
+                document.getElementById("Preguntes").style.display = "none";
+                document.getElementById("contentContainer5").style.display = "none";
+                document.getElementById("pista").style.display = "block";
+            } else {
+                alert("incorrecte, intenta-ho de nou.");
+
+            }
+        }
+    </script>
+</body>
+
+</html>

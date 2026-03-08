@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 4 - FORÇA I NATURA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: auto;
+            width: 60%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        h3 {
+            color: #777;
+        }
+
+        #Preguntes {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>PROVA 4 – FORÇA I NATURA</h1>
+
+    <div id="Preguntes">
+        <div id="contentContainer1">
+            <h3>Aquesta figura transmet moviment o quietud?</h3>
+            <input type="text" id="rp1" name="pregunta1" />
+            <button onclick="Seguent1()">Següent</button>
+        </div>
+        <div id="contentContainer2" style="display:none;">
+            <h3>Quins d'aquests atributs caracteritzen aquesta deessa generalment?</h3>
+
+            <input type="radio" id="rp2.1" name="pregunta2" value="1" />
+            <label for="rp2.1">El cavall, l'arc i les fletxes</label> <br>
+
+            <input type="radio" id="rp2.2" name="pregunta2" value="2" />
+            <label for="rp2.2">El gos, les fletxes i la mitja lluna</label> <br>
+
+            <input type="radio" id="rp2.3" name="pregunta2" value="3" />
+            <label for="rp2.3">El gos, l'arc i el sol</label> <br>
+
+            <button onclick="Següent2()">Següent</button>
+        </div>
+    </div>
+   <div id="contentContainer3" style="display:none;">
+        <h3>Aquesta deessa és una feminista dels seus temps, inventat un lema feminista i envia'l al Whatsapp de les professores.</h3>
+        <button onclick="check()">Comprova</button>
+        <form action="prova4.html" method="get"><button>Reinicia</button></form> <!-- Canviar en cada copia-->
+    </div>
+    <div id="pista" style="display:none;">
+        <h3>Foto</h3>
+        <p>Recorda enviar una fotografia del teu grup davant de l'estàtua al Whatsapp de les profes.</p>
+        <h3>Pista següent:</h3>
+        <p>El mar amaga el naixement de la bellesa.</p>
+        
+        <form action="index.html" method="get"><button>Menú</button></form>
+    </div>
+
+    <script>
+        //////////////////////////////////////////////////SCRIPT PROVA 1////////////////////////////////////////////////////////
+        function Seguent1() {
+        if (document.getElementById("rp1").value != "") {
+                document.getElementById("contentContainer1").style.display = "none";
+                document.getElementById("contentContainer2").style.display = "block";
+                resp1 = document.getElementById("rp1").value;
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }}
+
+        function Següent2() {
+            if (document.getElementById("rp2.1").checked || document.getElementById("rp2.2").checked || document.getElementById("rp2.3").checked) {
+                document.getElementById("contentContainer2").style.display = "none";
+                document.getElementById("contentContainer3").style.display = "block";
+                resp2 = document.querySelector('input[name="pregunta2"]:checked').value;
+
+            } else {
+                alert("Si us plau, respon a la pregunta abans de continuar.");
+            }
+        }
+
+
+        function check() {
+            var resposta1 = "Quietud"// Resposta correcta per a la pregunta 1
+            var resposta2 = "2"; // Resposta correcta per a la pregunta 2
+                 
+
+            if (resp1 === resposta1 && resp2 === resposta2) {
+                document.getElementById("Preguntes").style.display = "none";
+                document.getElementById("contentContainer3").style.display = "none";
+                document.getElementById("pista").style.display = "block";
+            } else {
+                alert("incorrecte, intenta-ho de nou.");
+
+            }
+        }
+    </script>
+</body>
+
+</html>
