@@ -3,9 +3,28 @@ body{
     margin: 0;
     padding: 0;
 }
-ul{ 
-    display: flex;
-    list-style: none;
+header{
+    background-color: rgb(132, 188, 252);
+    color: white;
+    padding: 20px;
+    margin: auto;
+    width:60%;
+    border-radius: 10px;
+    margin-top: 10px;
+
+}
+header h1 {
+    color:rgb(0, 0, 0)
+}header ol{
+    color:rgb(0, 0, 0);
+line-height: 16pt;}
+div.nav-buttons{
+    width:50%;
+    margin: auto;
+
+}
+button{ 
+    margin: auto;
 
 }
 
@@ -17,4 +36,7 @@ transition: all 0.5s ease-in;
 }
 a:hover{
     background-color: gold;
+}
+.NormesProves{
+    list-style: lower-greek;
 }
